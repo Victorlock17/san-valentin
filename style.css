@@ -1,126 +1,108 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: 'Dancing Script', cursive;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  text-align: center;
-  color: #333;
-  overflow: hidden;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .container {
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s ease;
 }
 
 h1 {
-  font-size: 3em;
-  color: #d6336c;
   margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 2em;
-  margin-top: 5px;
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+.date {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 25px;
 }
 
-.galeria img {
-  width: 220px;
-  height: auto;
-  margin: 10px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-
-.galeria img:hover {
-  transform: scale(1.05);
-}
-
-.botones {
-  margin-top: 30px;
+.buttons {
   position: relative;
-  height: 200px; /* espacio para que el botón se mueva */
+  height: 100px;
 }
 
 button {
-  padding: 15px 30px;
-  font-size: 1.2em;
+  padding: 12px 25px;
+  font-size: 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 30px;
   cursor: pointer;
-  margin: 10px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.si {
-  background-color: #d6336c;
+#yesBtn {
+  background: #ff4d6d;
   color: white;
 }
 
-.si:hover {
-  background-color: #a61e4d;
+#yesBtn:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 15px #ffb3c1;
 }
 
-.no {
-  background-color: #555;
-  color: white;
-  position: absolute; /* ahora sí se mueve */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Corazones flotando */
-.corazones::before, .corazones::after {
-  content: "❤";
+#noBtn {
+  background: white;
+  color: #ff4d6d;
   position: absolute;
-  font-size: 2em;
-  color: #d6336c;
-  animation: flotar 6s infinite;
+  right: 0;
 }
 
-.corazones::after {
-  left: 80%;
-  animation-delay: 3s;
-}
-
-@keyframes flotar {
-  0% { top: 100%; opacity: 0; }
-  50% { opacity: 1; }
-  100% { top: -10%; opacity: 0; }
-}
-
-/* Mensaje sorpresa */
-#mensaje-sorpresa {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff0f5;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  font-size: 1.5em;
-  color: #d6336c;
+.modal {
   display: none;
-  animation: aparecer 1s ease forwards;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translate(-50%, 50px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+.modal-content {
+  background: white;
+  color: #ff4d6d;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: center;
+  animation: pop 0.6s ease;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .galeria img {
-    width: 100%;
-  }
+.modal-content button {
+  margin-top: 20px;
+  background: #ff4d6d;
+  color: white;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); }
+  100% { transform: scale(1); }
+}
+
