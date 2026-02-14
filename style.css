@@ -5,55 +5,22 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff7a9e, #ff9bbf);
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: white;
-}
-
-.container {
-  background: rgba(255, 255, 255, 0.25);
-  padding: 30px 25px 35px;
-  border-radius: 25px;
-  text-align: center;
-  width: 90%;
-  max-width: 380px;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
   align-items: center;
-
-  backdrop-filter: blur(12px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
-
-h1 {
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.date {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-bottom: 25px;
-}
-
-/* CONTENEDOR GENERAL */
+/* TARJETA */
 .container {
   width: 90%;
   max-width: 380px;
-  margin: auto;
   padding: 30px 25px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
   text-align: center;
 
   display: flex;
@@ -65,8 +32,7 @@ h1 {
 .slider {
   width: 260px;
   height: 260px;
-  margin: 20px auto;
-
+  margin: 20px 0;
   position: relative;
   overflow: hidden;
   border-radius: 20px;
@@ -77,12 +43,10 @@ h1 {
   inset: 0;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
-
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s ease;
 }
 
 .slide.active {
@@ -91,20 +55,16 @@ h1 {
 
 /* BOTONES */
 .buttons {
-  width: 260px;
-  height: 60px;
+  width: 100%;
   margin-top: 20px;
-
-  position: relative;
 
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 20px;
 }
 
 #yesBtn {
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: 25px;
   border: none;
   background: #ff4d6d;
@@ -113,16 +73,36 @@ h1 {
 }
 
 #noBtn {
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: 25px;
   border: none;
   background: white;
   color: #ff4d6d;
   cursor: pointer;
-
-  position: absolute;
-  right: 0;
 }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  color: #ff4d6d;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 400px;
+  text-align: center;
+}
+
+
 
 
 
