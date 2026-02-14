@@ -42,14 +42,18 @@ yesBtn.addEventListener("click", () => {
 function closeModal() {
   modal.style.display = "none";
 }
-// SLIDER DE FOTOS
-const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
 
-setInterval(() => {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
-}, 3000); // cambia cada 3 segundos
+  if (slides.length === 0) return;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 3000); // cambia cada 3 segundos
+});
+
 
 
