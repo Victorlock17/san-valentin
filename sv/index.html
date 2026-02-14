@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>San Valentín 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,13 +14,19 @@
     <p id="fecha"></p>
 
     <div class="galeria">
-      <img src="foto1.jpg" alt="Foto juntos">
-      <img src="foto2.jpg" alt="Otra foto juntos">
-      <img src="foto3.jpg" alt="Recuerdo especial">
+      <img src="foto1.jpeg" alt="Foto juntos">
+      <img src="foto2.jpeg" alt="Otra foto juntos">
+      <img src="foto3.jpeg" alt="Recuerdo especial">
     </div>
 
-    <button onclick="respuesta()">Sí 💕</button>
+    <div class="botones">
+      <button class="si" onclick="respuesta()">Sí ❤️</button>
+      <button class="no" onmouseover="escapar()">No 💔</button>
+    </div>
   </div>
+
+  <div class="corazones"></div>
+  <div id="mensaje-sorpresa" class="oculto">💌 ¡Gracias por decir que sí, Jimena! 💖</div>
 
   <script src="script.js"></script>
 </body>
