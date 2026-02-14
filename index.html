@@ -1,128 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>San Valentín 💖</title>
-
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  width: 320px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-h1 {
-  color: #e91e63;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #555;
-  margin-bottom: 15px;
-}
-
-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#yes {
-  background: #e91e63;
-  color: white;
-}
-
-#no {
-  background: #ccc;
-  position: relative;
-}
-
-#message {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #e91e63;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>San Valentín 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+
+<!-- 💕 Confeti -->
+<div id="confetti-container"></div>
 
 <div class="card">
   <h1>Jimena Callienes Salazar 💖</h1>
-  <p>¿Quieres ser mi San Valentín?</p>
-  <p>14 de febrero · 5:00 pm</p>
+  <p class="question">¿Quieres ser mi San Valentín?</p>
+  <p class="date">14 de febrero · 5:00 pm</p>
 
-  <img id="photo" src="foto1.jpeg">
+  <div class="carousel">
+    <img id="photo" src="foto1.jpeg" alt="Foto">
+  </div>
 
   <div class="buttons">
     <button id="yes">Sí 💕</button>
     <button id="no">No 💔</button>
   </div>
-
-  <div id="message"></div>
 </div>
 
-<script>
-const photos = ["foto1.jpeg", "foto2.jpeg", "foto3.jpeg"];
-let index = 0;
-const photo = document.getElementById("photo");
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
-const message = document.getElementById("message");
+<!-- 💌 Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>💖 Gracias por aceptar 💖</h2>
+    <p>
+      Me haces muy feliz.<br>
+      Prometo hacer de este San Valentín algo inolvidable 💕
+    </p>
+    <button id="close">Cerrar</button>
+  </div>
+</div>
 
-/* 🔄 CARRUSEL */
-setInterval(() => {
-  index = (index + 1) % photos.length;
-  photo.src = photos[index];
-}, 2500);
-
-/* 💕 BOTÓN SÍ */
-yes.onclick = () => {
-  message.innerHTML = "Gracias por aceptar mi amor 💖🥰";
-};
-
-/* 😈 BOTÓN NO ESCAPA */
-no.onmouseover = () => {
-  const x = Math.random() * (window.innerWidth - no.offsetWidth);
-  const y = Math.random() * (window.innerHeight - no.offsetHeight);
-  no.style.position = "fixed";
-  no.style.left = x + "px";
-  no.style.top = y + "px";
-};
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
 
 
 
