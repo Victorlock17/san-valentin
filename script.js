@@ -44,16 +44,22 @@ function closeModal() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  let index = 0;
 
-  if (slides.length === 0) return;
+  if (slides.length < 2) return;
 
   setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
-  }, 3000); // cambia cada 3 segundos
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 3000);
 });
+  const noBtn = document.getElementById("noBtn");
 
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * 120 - 60;
+  const y = Math.random() * 40 - 20;
 
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
 
