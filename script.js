@@ -1,26 +1,41 @@
-// Mostrar fecha y hora actual
-const fecha = new Date();
-document.getElementById("fecha").textContent =
-  "Fecha y hora: " + fecha.toLocaleString();
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const modal = document.getElementById("modal");
+const dateEl = document.getElementById("date");
 
-function respuesta() {
-  const mensaje = document.getElementById("mensaje-sorpresa");
-  mensaje.style.display = "block";
-}
+const messages = [
+  "¿Estás segura? 😢",
+  "Piénsalo bien 🙈",
+  "No seas mala 😭",
+  "Dale que sí 💖",
+  "Vamos, di que sí 🥺"
+];
 
-function escapar() {
-  const noBtn = document.querySelector(".no");
-  const mensajes = ["¿Estás segura? :(", "Piénsalo bien 💔", "No me digas eso 😢"];
-  const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
-  noBtn.textContent = mensaje;
+let msgIndex = 0;
 
-  const contenedor = document.querySelector(".botones");
-  const maxTop = contenedor.offsetHeight - noBtn.offsetHeight;
-  const maxLeft = contenedor.offsetWidth - noBtn.offsetWidth;
+// Fecha y hora (San Valentín vibe)
+const now = new Date();
+dateEl.textContent = now.toLocaleDateString("es-PE", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+}) + " · 5:00 PM";
 
-  const nuevoTop = Math.random() * maxTop;
-  const nuevoLeft = Math.random() * maxLeft;
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 100 - 50;
 
-  noBtn.style.top = nuevoTop + "px";
-  noBtn.style.left = nuevoLeft + "px";
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+  noBtn.textContent = messages[msgIndex];
+  msgIndex = (msgIndex + 1) % messages.length;
+});
+
+yesBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+function closeModal() {
+  modal.style.display = "none";
 }
