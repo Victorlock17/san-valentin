@@ -14,13 +14,16 @@ const messages = [
 let msgIndex = 0;
 
 // Fecha y hora (San Valentín vibe)
-const now = new Date();
-dateEl.textContent = now.toLocaleDateString("es-PE", {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric"
-}) + " · 5:00 PM";
+const today = new Date();
+
+dateEl.textContent =
+  today.toLocaleDateString("es-PE", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }) + " · 5:00 pm";
+
 
 noBtn.addEventListener("mouseover", () => {
   const x = Math.random() * 200 - 100;
@@ -39,3 +42,4 @@ yesBtn.addEventListener("click", () => {
 function closeModal() {
   modal.style.display = "none";
 }
+
