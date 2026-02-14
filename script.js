@@ -1,48 +1,52 @@
-// Carrusel
-let slides = document.querySelectorAll('.slide');
-let index = 0;
+/* 📸 Carrusel */
+const photos = ["foto1.jpeg", "foto2.jpeg", "foto3.jpeg"];
+let current = 0;
+const photo = document.getElementById("photo");
 
 setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 3000);
+  current = (current + 1) % photos.length;
+  photo.src = photos[current];
+}, 2500);
 
-// Botón NO escapa
-const noBtn = document.getElementById('noBtn');
+/* 😈 Botón NO escapa */
+const noBtn = document.getElementById("no");
 
-noBtn.addEventListener('mouseover', () => {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 200 - 100;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
 });
 
-// Modal
-const yesBtn = document.getElementById('yesBtn');
-const modal = document.getElementById('modal');
+/* 💕 Modal SÍ */
+const yesBtn = document.getElementById("yes");
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("close");
 
-yesBtn.addEventListener('click', () => {
-  modal.style.display = 'flex';
+yesBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+  launchConfetti();
 });
 
-function closeModal() {
-  modal.style.display = 'none';
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+/* 🎉 Confeti */
+function launchConfetti() {
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.textContent = ["💖","💘","💕","❤️"][Math.floor(Math.random()*4)];
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (3 + Math.random() * 2) + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 5000);
+  }
 }
 
-// Corazones flotando
-const heartsContainer = document.querySelector('.hearts');
-
-setInterval(() => {
-  const heart = document.createElement('span');
-  heart.innerHTML = '❤️';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-  heartsContainer.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}, 400);
 
 
 
