@@ -1,5 +1,5 @@
 /* 📸 Carrusel */
-const photos = ["foto1.jpeg", "foto2.jpeg", "foto4.jpeg"];
+const photos = ["foto1.jpeg", "foto2.jpeg", "foto3.jpeg"];
 let current = 0;
 const photo = document.getElementById("photo");
 
@@ -8,27 +8,16 @@ setInterval(() => {
   photo.src = photos[current];
 }, 2500);
 
-const noTexts = [
-  "¿Estás segura? 😢",
-  "Piénsalo bien 🥺",
-  "No seas mala 💔",
-  "Ándale, di que sí 😭",
-  "Última oportunidad 😳"
-];
-
-let noIndex = 0;
+/* 😈 Botón NO escapa */
+const noBtn = document.getElementById("no");
 
 noBtn.addEventListener("mouseover", () => {
-  noBtn.textContent = noTexts[noIndex];
-  noIndex = (noIndex + 1) % noTexts.length;
-
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
   noBtn.style.position = "fixed";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 });
-
 
 /* 💕 Modal SÍ */
 const yesBtn = document.getElementById("yes");
