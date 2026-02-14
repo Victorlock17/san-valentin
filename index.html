@@ -4,32 +4,34 @@
   <meta charset="UTF-8">
   <title>San Valentín 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
-    <h1>¿Quieres ser mi San Valentín?</h1>
-    <h2>Jimena Calienes Salazar</h2>
-    <p id="fecha"></p>
+    <h1>💘 Jimena Callienes Salazar 💘</h1>
+    <p class="subtitle">¿Quieres ser mi San Valentín?</p>
 
-    <div class="galeria">
-      <img src="foto1.jpeg" alt="Foto juntos">
-      <img src="foto2.jpeg" alt="Otra foto juntos">
-      <img src="foto3.jpeg" alt="Recuerdo especial">
-    </div>
+    <p class="date" id="date"></p>
 
-    <div class="botones">
-      <button class="si" onclick="respuesta()">Sí ❤️</button>
-      <button class="no" onmouseover="escapar()">No 💔</button>
+    <div class="buttons">
+      <button id="yesBtn">💖 Sí</button>
+      <button id="noBtn">💔 No</button>
     </div>
   </div>
 
-  <div class="corazones"></div>
-  <div id="mensaje-sorpresa" class="oculto">💌 ¡Gracias por decir que sí, mi amorcito! 💖</div>
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>💞 ¡Gracias por aceptar, mi amor! 💞</h2>
+      <p>
+        Prometo hacerte sonreír, cuidarte y demostrarte cada día
+        lo especial que eres para mí 💕✨
+      </p>
+      <button onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
