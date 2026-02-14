@@ -31,8 +31,12 @@ h1 {
 }
 
 .question {
-  font-size: 18px;
-  margin-bottom: 5px;
+  .question {
+  font-family: 'Pacifico', cursive;
+  font-size: 26px;
+  color: #e91e63;
+  margin-bottom: 8px;
+
 }
 
 .date {
@@ -132,6 +136,7 @@ button:hover {
     opacity: 0;
   }
 }
+
 
 
 
