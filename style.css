@@ -48,8 +48,37 @@ h1 {
 
 .buttons {
   position: relative;
-  height: 100px;
+  width: 100%;
+  max-width: 260px;
+  height: 70px;
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
+
+#yesBtn, #noBtn {
+  padding: 12px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background: white;
+  color: #ff4d6d;
+  position: absolute;
+  right: 0;
+}
+
 
 button {
   padding: 12px 25px;
@@ -140,6 +169,7 @@ button {
 .slide.active {
   opacity: 1;
 }
+
 
 
 
