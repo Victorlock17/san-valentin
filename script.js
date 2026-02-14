@@ -8,16 +8,27 @@ setInterval(() => {
   photo.src = photos[current];
 }, 2500);
 
-/* 😈 Botón NO escapa */
-const noBtn = document.getElementById("no");
+const noTexts = [
+  "¿Estás segura? 😢",
+  "Piénsalo bien 🥺",
+  "No seas mala 💔",
+  "Ándale, di que sí 😭",
+  "Última oportunidad 😳"
+];
+
+let noIndex = 0;
 
 noBtn.addEventListener("mouseover", () => {
+  noBtn.textContent = noTexts[noIndex];
+  noIndex = (noIndex + 1) % noTexts.length;
+
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
   noBtn.style.position = "fixed";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 });
+
 
 /* 💕 Modal SÍ */
 const yesBtn = document.getElementById("yes");
@@ -46,6 +57,7 @@ function launchConfetti() {
     setTimeout(() => confetti.remove(), 5000);
   }
 }
+
 
 
 
