@@ -1,5 +1,5 @@
 /* 📸 Carrusel */
-const photos = ["foto1.jpeg", "foto2.jpeg", "foto3.jpeg"];
+const photos = ["foto1.jpeg", "foto2.jpeg", "foto4.jpeg"];
 let current = 0;
 const photo = document.getElementById("photo");
 
@@ -46,6 +46,7 @@ function launchConfetti() {
     setTimeout(() => confetti.remove(), 5000);
   }
 }
+
 
 
 
