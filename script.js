@@ -1,26 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // SLIDER
-  const slides = document.querySelectorAll(".slide");
-  let index = 0;
+// Carrusel
+let slides = document.querySelectorAll('.slide');
+let index = 0;
 
-  setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, 3000);
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 3000);
 
-  // MODAL
-  const yesBtn = document.getElementById("yesBtn");
-  const modal = document.getElementById("modal");
+// Botón NO escapa
+const noBtn = document.getElementById('noBtn');
 
-  yesBtn.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
+noBtn.addEventListener('mouseover', () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// Modal
+const yesBtn = document.getElementById('yesBtn');
+const modal = document.getElementById('modal');
+
+yesBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
 });
 
 function closeModal() {
-  document.getElementById("modal").style.display = "none";
+  modal.style.display = 'none';
 }
+
+// Corazones flotando
+const heartsContainer = document.querySelector('.hearts');
+
+setInterval(() => {
+  const heart = document.createElement('span');
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 400);
+
 
 
 
