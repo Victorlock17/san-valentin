@@ -8,30 +8,43 @@ setInterval(() => {
   photo.src = photos[current];
 }, 2500);
 
-/* 😈 Botón NO escapa */
 const noBtn = document.getElementById("no");
 
-noBtn.addEventListener("mouseover", () => {
+function moveNoButton() {
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
   noBtn.style.position = "fixed";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+}
+
+// Desktop
+noBtn.addEventListener("mouseover", moveNoButton);
+
+// Mobile
+noBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveNoButton();
 });
 
-/* 💕 Modal SÍ */
+
 const yesBtn = document.getElementById("yes");
 const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("close");
 
-yesBtn.addEventListener("click", () => {
+function openModal() {
   modal.style.display = "flex";
   launchConfetti();
+}
+
+// Desktop
+yesBtn.addEventListener("click", openModal);
+
+// Mobile
+yesBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  openModal();
 });
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
 
 /* 🎉 Confeti */
 function launchConfetti() {
@@ -46,6 +59,7 @@ function launchConfetti() {
     setTimeout(() => confetti.remove(), 5000);
   }
 }
+
 
 
 
