@@ -1,3 +1,13 @@
+// Mostrar fecha y hora actual
+const fecha = new Date();
+document.getElementById("fecha").textContent =
+  "Fecha y hora: " + fecha.toLocaleString();
+
+function respuesta() {
+  const mensaje = document.getElementById("mensaje-sorpresa");
+  mensaje.style.display = "block";
+}
+
 function escapar() {
   const noBtn = document.querySelector(".no");
   const mensajes = ["¿Estás segura? :(", "Piénsalo bien 💔", "No me digas eso 😢"];
